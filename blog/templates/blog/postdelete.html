@@ -2,9 +2,9 @@
 {% load static %}
 {% block dash%}
 <p>Are you sure do you want to delete the post?</p>
-<form method="POST" action="http://localhost:8000/home/{{ pk }}/deletepost/{{ pi }}">
+<form method="POST" action="http://ec2-13-250-102-161.ap-southeast-1.compute.amazonaws.com:8000/home/{{ pk }}/deletepost/{{ pi }}">
     {% csrf_token %}
-    <a href="http://localhost:8000/home/{{ pk }}">Cancel</a>
+    <a href="http://ec2-13-250-102-161.ap-southeast-1.compute.amazonaws.com:8000/home/{{ pk }}">Cancel</a>
     <input type="submit" name="confirm">
 {% endblock %}
     
