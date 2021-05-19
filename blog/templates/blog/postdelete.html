@@ -1,0 +1,10 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block dash%}
+<p>Are you sure do you want to delete the post?</p>
+<form method="POST" action="http://localhost:8000/home/{{ pk }}/deletepost/{{ pi }}">
+    {% csrf_token %}
+    <a href="http://localhost:8000/home/{{ pk }}">Cancel</a>
+    <input type="submit" name="confirm">
+{% endblock %}
+    

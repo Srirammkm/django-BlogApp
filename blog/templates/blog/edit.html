@@ -1,0 +1,24 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block dash%}
+<form method="POST" action="http://localhost:8000/home/{{ pk }}/edit">
+    {% csrf_token %}
+    <div class="form-group center" align="center" padding='50px'>
+        <h1> Edit Profile </h1>
+        <hr>
+        <p hidden> {{ form.username }}</p>
+        <h4> Name : </h4> {{form.name}}
+        <hr>
+        <h4> Email : </h4> {{form.email}}
+        <hr>
+        <h4> Phone : </h4> {{form.phone}}
+        <hr>
+        <h4> Password : </h4> {{form.password}}
+        <hr>
+        <h4> Confirm-Password : </h4> {{form.password}}
+        <hr>
+        <input type="submit" class="btn btn-primary" name="POST">
+    </div
+</form>
+
+{% endblock %}

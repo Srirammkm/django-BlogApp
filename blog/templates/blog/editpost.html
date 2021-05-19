@@ -1,0 +1,15 @@
+{% extends 'blog/main.html' %}
+{% load static %}
+{% block dash%}
+<form method="POST" action="http://localhost:8000/home/{{ pk }}/editpost/{{ pi }}">
+    {% csrf_token %}
+    <div class="form-group center" align="center" padding='50px'>
+        <hr>
+        <p hidden>{{form.user}}</p>
+        <h4> Title : {{form.title}} </h4>
+        <hr>
+        <h4 align="center"> Content : </h4>{{form.content}}
+        <hr>
+        <input type="submit" class="btn btn-primary" name="POST">
+    </div>
+{% endblock %}

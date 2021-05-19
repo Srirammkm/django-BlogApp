@@ -1,0 +1,48 @@
+{% extends 'blog/main.html' %}
+
+{% block dash %}
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>TOTAL USERS: {{ users.count}}</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table">
+				{% for user in users %}
+					<tr>
+						<td>{{user.name}} </td>
+						<td><a href="profile/{{user.id}}" class="btn btn-sm btn-info">View</a></td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>RECENT POSTS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="createpost">Create Post</a>
+			<table class="table table-sm">
+				{% for post in posts %}
+                  <hr>
+					<h4>{{ post.title }}</h4>
+                    {{ post.content }}
+            
+                    <h6> Author : <a href="profile/{{post.user_id}}">{{ post.user }}</a> </h6> 
+                    <h6> Time : {{ post.date }} </h6>
+					{% if post.user_id ==  pk %}
+						<div class="text-left">
+    						<a href="deletepost/{{ post.id }}" class="btn btn-primary text-left btn-danger">Delete</a>
+    						<a href="editpost/{{ post.id }}" class="btn btn-primary text-center">Edit</a>
+						</div>
+					{% endif %}
+                  <hr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends 'blog/main.html' %}
+{% block dash %}
+<br>
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>{{ user.name}}</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table">
+                <h2> Contacts </h2>
+					<tr>
+                        <h4> Name : {{user.name}}</h4>
+						<h4> Username : {{user.username}}</h4>
+                        <h4> Email : {{user.email}}</h4>
+						<h4> Phone :{{user.phone}}</h4>
+					</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="col-md-7">
+		<h5>RECENT POSTS</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				{% for post in posts %}
+                  <hr>
+					<h4>{{ post.title }}</h4>
+                    {{ post.content }}
+            
+                    <h6> Author : <a href="">{{ post.user }}</a> </h6> 
+                    <h6> Time : {{ post.date }} </h6>
+					{% if post.user_id ==  pk %}
+						<div class="text-left">
+    						<a href="http://localhost:8000/home/{{ pk }}/deletepost/{{ post.id }}" class="btn btn-primary text-left btn-danger">Delete</a>
+    						<a href="http://localhost:8000/home/{{ pk }}/editpost/{{ post.id }}" class="btn btn-primary text-center">Edit</a>
+						</div>
+					{% endif %}
+                  <hr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+{% endblock %}
