@@ -1,7 +1,7 @@
 {% extends 'blog/main.html' %}
 {% load static %}
 {% block dash%}
-<form method="POST" action="http://localhost:8000/home/{{ pk }}/editpost/{{ pi }}">
+<form method="POST" action="http://ec2-13-250-102-161.ap-southeast-1.compute.amazonaws.com:8000/home/{{ pk }}/editpost/{{ pi }}">
     {% csrf_token %}
     <div class="form-group center" align="center" padding='50px'>
         <hr>
