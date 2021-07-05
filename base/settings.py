@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-s2bm1k@su5y9-h*5og@#!_u#=mqvc9wu@m1@4cl%1=k+64bb&4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [0.0.0.0,'django-blog-rosa-test.apps.rosa.mhfj.p1.openshiftapps.com']
 
 
 # Application definition
